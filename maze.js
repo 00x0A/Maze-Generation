@@ -210,3 +210,8 @@ class Cell
         if (this.visited)  ctx.fillRect( x, y, space/rows, space/columns );
     }
 }
+
+// Initializing Maze of dimension 600 x 600 with 20 rows and 20 columns.
+let newMaze = new Maze( 600, 20, 20);
+newMaze.setGrid();
+newMaze.draw();
