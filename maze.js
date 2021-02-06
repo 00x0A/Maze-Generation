@@ -51,6 +51,31 @@ class Cell
         }
     }
 
+    
+    checkNeighbours()
+    {
+        let grid    = this.grid;
+        let row     = this.row;
+        let column  = this.column;
+
+        let neighbours = [];
+
+        let top    = row    !== 0                ? grid[row - 1][column] : undefined;
+        let right  = column !== grid.length - 1  ? grid[row][column + 1] : undefined;
+        let bottom = row    !== grid.length - 1  ? grid[row + 1][column] : undefined;
+        let left   = column !== 0                ? grid[row][column - 1] : undefined;
+
+        if ( top    && !top.visited    ) neighbours.push(top);
+        if ( right  && !right.visited  ) neighbours.push(right);
+        if ( bottom && !bottom.visited ) neighbours.push(bottom);
+        if ( left   && !left.visited  ) neighbours.push(left);
+
+        if (neighbours.length !== 0) 
+            return neighbours[Math.floor(Math.random() * neighbours.length)];
+        else                         
+            return undefined;
+    }
+
 
     drawTopWall( x, y, space, rows, columns )
     {
