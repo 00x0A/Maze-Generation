@@ -31,4 +31,21 @@ class Cell
 
         }
     }
+
+    show( space, rows, columns )
+    {
+        let x = ( this.column * space ) / columns;
+        let y = ( this.row    * space ) / rows;
+
+        ctx.fillStyle   = "#1f1f1f";
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth   = 1;
+
+        if (this.walls.topWall)     this.drawTopWall( x, y, space, rows, columns );
+        if (this.walls.rightWall)   this.drawRightWall( x, y, space, rows, columns );
+        if (this.walls.bottomWall)  this.drawBottomWall( x, y, space, rows, columns );
+        if (this.walls.leftWall)    this.drawLeftWall( x, y, space, rows, columns );
+
+        if (this.visited)  ctx.fillRect( x, y, space/rows, space/columns );
+    }
 }
