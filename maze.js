@@ -57,6 +57,14 @@ class Cell
         ctx.stroke();
     }
 
+    drawLeftWall( x, y, space, rows, columns )
+    {
+        ctx.beginPath();
+        ctx.moveTo( x, y + space/rows );
+        ctx.lineTo( x, y )
+        ctx.stroke();
+    }
+
     show( space, rows, columns )
     {
         let x = ( this.column * space ) / columns;
