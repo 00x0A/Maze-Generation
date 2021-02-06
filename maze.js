@@ -1,6 +1,8 @@
 let maze = document.querySelector(".maze");
 let ctx  = maze.getContext("2d");
 
+let crawler;
+
 class Maze
 {
     constructor( space, rows, columns )
