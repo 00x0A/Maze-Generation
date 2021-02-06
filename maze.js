@@ -39,7 +39,15 @@ class Cell
         ctx.moveTo( x, y );
         ctx.lineTo( x + space/columns, y );
         ctx.stroke();
-    }    
+    }
+    
+    drawRightWall( x, y, space, rows, columns )
+    {
+        ctx.beginPath();
+        ctx.moveTo( x + space/columns, y);
+        ctx.lineTo( x + space/columns, y + space/rows )
+        ctx.stroke();
+    }
 
     show( space, rows, columns )
     {
