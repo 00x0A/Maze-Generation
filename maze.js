@@ -30,6 +30,47 @@ class Maze
         crawler = this.grid[0][0];
     
     }
+
+    draw()
+    {
+        maze.width  = this.space;
+        maze.height = this.space;
+        maze.style.background = "#1f1f1f";
+        crawler.visited       = true;
+        
+        for ( let row = 0; row < this.rows; row++)
+        {
+            for ( let column = 0; column < this.columns; column++)
+            {
+                this.grid[row][column].show( this.space, this.rows, this.columns )
+            }
+        }
+
+        let nextCell = crawler.checkNeighbours();
+
+        if( nextCell )
+        {
+            nextCell.visited = true;
+            this.stack.push(crawler);
+            crawler.highlight( this.columns );
+            crawler.removeWalls( crawler, nextCell );
+            crawler = nextCell;
+        }
+        else if( this.stack.length > 0 )
+        {
+            let cell = this.stack.pop();
+            crawler = cell;
+            crawler.highlight( this.columns );
+        }
+
+        if ( this.stack.length === 0 ) 
+        {
+            return;
+        }
+
+        setTimeout( () => this.draw(), 10 );
+    }
+
 }
 
 class Cell
