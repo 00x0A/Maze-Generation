@@ -32,6 +32,15 @@ class Cell
         }
     }
 
+
+    drawTopWall( x, y, space, rows, columns )
+    {
+        ctx.beginPath();
+        ctx.moveTo( x, y );
+        ctx.lineTo( x + space/columns, y );
+        ctx.stroke();
+    }    
+
     show( space, rows, columns )
     {
         let x = ( this.column * space ) / columns;
