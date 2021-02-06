@@ -109,6 +109,17 @@ class Cell
         ctx.stroke();
     }
 
+    highlight( columns )
+    {
+        let x = (this.column * this.space) / columns ;
+        let y = (this.row    * this.space) / columns ;
+
+        ctx.fillStyle = "purple";
+        ctx.fillRect( x + 1, y + 1, this.space/columns - 2, this.space/columns - 2 );
+
+    }
+
+
     show( space, rows, columns )
     {
         let x = ( this.column * space ) / columns;
