@@ -11,6 +11,23 @@ class Maze
         this.grid    =   [];       // Produces Maze.
         this.stack   =   [];
     }
+
+    setGrid()
+    {
+        for ( let row = 0; row < this.rows; row++)
+        {
+            let rowStack = [];
+            for ( let column = 0; column < this.columns; column++)
+            {
+                let cell = new Cell( row, column, this.grid, this.space );
+                rowStack.push(cell);
+            }
+            this.grid.push(rowStack);
+        }
+
+        crawler = this.grid[0][0];
+    
+    }
 }
 
 class Cell
