@@ -49,6 +49,14 @@ class Cell
         ctx.stroke();
     }
 
+    drawBottomWall( x, y, space, rows, columns )
+    {
+        ctx.beginPath();
+        ctx.moveTo( x + space/columns, y + space/columns );
+        ctx.lineTo( x, y + space/rows )
+        ctx.stroke();
+    }
+
     show( space, rows, columns )
     {
         let x = ( this.column * space ) / columns;
