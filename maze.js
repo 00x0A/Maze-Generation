@@ -119,6 +119,38 @@ class Cell
 
     }
 
+    
+    removeWalls( cellOne, cellTwo )
+    {
+        let x = cellOne.column - cellTwo.column;
+
+        if ( x === 1 )
+        {
+            cellOne.walls.leftWall = false;
+            cellTwo.walls.rightWall= false; 
+        }
+        else if( x === -1 )
+        {
+            cellOne.walls.rightWall = false;
+            cellTwo.walls.leftWall  = false;
+
+        }
+        
+        let y = cellOne.row - cellTwo.row;
+
+        if ( y === 1 )
+        {
+            cellOne.walls.topWall = false;
+            cellTwo.walls.bottomWall    = false;
+        }
+        else if( y === -1 )
+        {
+            cellOne.walls.bottomWall    = false;
+            cellTwo.walls.topWall = false;
+        }
+
+    }
+
 
     show( space, rows, columns )
     {
